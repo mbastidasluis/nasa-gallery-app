@@ -25,7 +25,7 @@ export default function Home({
 
       <main className={styles.main}>
         {currentRover &&
-          <div style={{ display: 'flex',flexDirection:'column' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <h3>Rover: {currentRover.name}</h3>
             <h3>Launch date: {currentRover.launch_date}</h3>
             <h3>Landing date: {currentRover.landing_date}</h3>
@@ -52,7 +52,9 @@ export async function getStaticProps() {
   // TODO add production URL
   // Checking if the app is in development mode.
   // The base URL must be included when calling another API from here.
-  const baseURL = isDevMode ? 'http://localhost:3000' : ''
-  const { roversMetadata } = await fetcher(`${baseURL}/api/roversMetadata`)
-  return { props: { roversMetadata } }
+  const baseURL = isDevMode ? 'http://localhost:3000' : 'https://nasa-gallery-app.vercel.app'
+  const result = await fetcher(`${baseURL}/api/roversMetadata`)
+
+  console.log('result', result);
+  return { props: { roversMetadata: {} } }
 }

@@ -14,7 +14,7 @@ export const useBaseURL = () => {
         // TODO add production URL
         // Checking if the app is in development mode.
         // The base URL must be included when calling another API from here.
-        setBaseURL(isDevMode ? 'http://localhost:3000' : '')
+        setBaseURL(isDevMode ? 'http://localhost:3000' : 'https://nasa-gallery-app.vercel.app')
     }, [])
 
     return { baseURL }

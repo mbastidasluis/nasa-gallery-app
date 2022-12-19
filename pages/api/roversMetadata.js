@@ -12,7 +12,7 @@ export default async function handler(req, res) {
   // TODO add production URL
   // Checking if the app is in development mode.
   // The base URL must be included when calling another API from here.
-  const baseURL = isDevMode ? 'http://localhost:3000' : ''
+  const baseURL = isDevMode ? 'http://localhost:3000' : 'https://nasa-gallery-app.vercel.app'
 
   /* Fetching the current rovers names from the API. */
   const roversNames = await fetcher(`${baseURL}/api/currentRovers`)

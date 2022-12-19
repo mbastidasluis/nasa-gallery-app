@@ -5,5 +5,10 @@
  */
 export default async function fetcher(...args) {
     const res = await fetch(...args)
+    if (res.status !== 200) {
+        console.log('res', res);
+        return 'some error ocurred while fetching data.'
+    }
+
     return res.json()
 }
