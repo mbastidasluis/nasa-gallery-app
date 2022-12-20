@@ -87,7 +87,7 @@ export function useRandomImage(roversMetadata) {
     const getRandomDay = (roverName) => {
         return getRandomIndex(0, roversMetadata[roverName].martianDays)
     }
-    /** utility methods */
+    /** end of utility methods */
 
     return { roversNames, currentPhotos, currentRover }
 

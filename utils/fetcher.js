@@ -6,9 +6,8 @@
 export default async function fetcher(...args) {
     try {
         const res = await fetch(...args)
-        console.log('status', res.status);
-        console.log('statusText', res.statusText);
-        return res.json()
+        const response = await res.json()
+        return response
     } catch (e) {
         console.log('args', args);
         console.error(e);
