@@ -24,18 +24,28 @@ export default function Home({
       </Head>
 
       <main className={styles.main}>
-        {currentRover &&
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <h3>Rover: {currentRover.name}</h3>
-            <h3>Launch date: {currentRover.launch_date}</h3>
-            <h3>Landing date: {currentRover.landing_date}</h3>
-            <h3>Mission status: {currentRover.status}</h3>
+        <div className={styles.header}>
+          <div className={styles.headerLeft}>
+            <div className={styles.headerTitle}>Welcome to the official <span className={styles.appName}>NASA Gallery App</span></div>
+            <div className={styles.headerSubTitle}>You will see the best pictures taken by our rovers on Mars!</div>
           </div>
-        }
+
+          {currentRover &&
+            <div className={styles.headerRight}>
+              <div>Rover: {currentRover.name}</div>
+              <div>Launch date: {currentRover.launch_date}</div>
+              <div>Landing date: {currentRover.landing_date}</div>
+              <div>Mission status: {currentRover.status}</div>
+            </div>
+          }
+
+        </div>
         <div className={styles.container}>
           {currentPhotos && <Features features={currentPhotos} />}
         </div>
+        <footer>Luis A. Bastidas M., 2022</footer>
       </main>
+
     </>
   )
 }
@@ -54,7 +64,5 @@ export async function getStaticProps() {
   // The base URL must be included when calling another API from here.
   const baseURL = isDevMode ? 'http://localhost:3000' : 'https://nasa-gallery-app.vercel.app'
   const result = await fetcher(`${baseURL}/api/roversMetadata`)
-
-  console.log('result', result);
-  return { props: { roversMetadata: {} } }
+  return { props: { roversMetadata: result && result.roversMetadata ? result.roversMetadata : {} } }
 }

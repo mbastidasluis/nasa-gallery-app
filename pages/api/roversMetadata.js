@@ -1,4 +1,3 @@
-import { useBaseURL } from "../../hooks/useBaseURL"
 import fetcher from "../../utils/fetcher"
 
 /**

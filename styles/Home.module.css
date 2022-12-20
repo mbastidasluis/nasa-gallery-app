@@ -7,6 +7,40 @@
   justify-content: space-evenly;
 }
 
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 1500px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.headerLeft {
+  font-size: large;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.headerRight {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.headerTitle {
+  font-size: larger;
+}
+
+.headerSubTitle {
+  font-size: small;
+}
+
+.appName {
+  display: block;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -39,4 +73,33 @@
     width: 350px;
     height: 350px;
   }
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 765px) {
+
+  .header {
+    flex-direction: row;
+    line-height: 1.4em;
+  }
+
+
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 1550px) {
+
+  .header{
+    justify-content: space-around;
+  }
+
+  .headerTitle {
+    font-size: xx-large;
+    line-height: 2rem;
+  }
+
+  .appName {
+    display: inline;
+  }
+
 }
