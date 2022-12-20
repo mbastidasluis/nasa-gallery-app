@@ -4,11 +4,14 @@
  * @returns data as JSON
  */
 export default async function fetcher(...args) {
-    const res = await fetch(...args)
-    if (res.status !== 200) {
-        console.log('res', res);
+    try {
+        const res = await fetch(...args)
+        console.log('status', res.status);
+        console.log('statusText', res.statusText);
+        return res.json()
+    } catch (e) {
+        console.log('args', args);
+        console.error(e);
         return 'some error ocurred while fetching data.'
     }
-
-    return res.json()
 }
